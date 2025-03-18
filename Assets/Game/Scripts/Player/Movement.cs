@@ -4,44 +4,26 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     private PlayerInput _input;
-    private InputAction _movementAction;
-    private Vector2 _movement;
-
+    private InputAction _moveAction;
     private Rigidbody2D _rb;
+
+    [SerializeField]
+    private float _maxSpeed;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-
         _input = GetComponent<PlayerInput>();
-        _movementAction = _input.actions.FindAction("Movement");
+        _moveAction = _input.actions.FindAction("Movement");
     }
 
-    private void OnEnable()
-    {
-        _movementAction.started += OnMoveInput;
-        _movementAction.canceled += OnMoveInput;
-    }
-
-    private void OnDisable()
-    {
-        _movementAction.started -= OnMoveInput;
-        _movementAction.canceled -= OnMoveInput;
-    }
-
-    private void Update()
+    private void FixedUpdate()
     {
         Move();
     }
 
-    private void OnMoveInput(InputAction.CallbackContext context)
-    {
-        Debug.Log(_movement);
-        _movement = context.ReadValue<Vector2>();
-    }
-
     private void Move()
     {
-        _rb.AddForce(_movement, ForceMode2D.Force);
+        _rb.linearVelocity = _moveAction.ReadValue<Vector2>().normalized * _maxSpeed;
     }
 }

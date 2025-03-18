@@ -1,10 +1,28 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Interact : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start() { }
+    private PlayerInput _input;
+    private InputAction _interactAction;
 
-    // Update is called once per frame
-    void Update() { }
+    [SerializeField]
+    private bool _canInteract = true;
+
+    [ReadOnly]
+    public bool InteractedThisFrame;
+
+    private void Awake()
+    {
+        _input = GetComponent<PlayerInput>();
+        _interactAction = _input.actions.FindAction("Interact");
+    }
+
+    private void Update()
+    {
+        if (_canInteract)
+        {
+            InteractedThisFrame = _interactAction.WasPressedThisFrame();
+        }
+    }
 }
