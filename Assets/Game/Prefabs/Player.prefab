@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4065003977277973974}
   - component: {fileID: 820880810832995757}
   - component: {fileID: 3475215702823326256}
-  - component: {fileID: 4989105175893018238}
+  - component: {fileID: 2626441517380019159}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 3780895756817780624}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canInteract: 1
   InteractedThisFrame: 0
---- !u!114 &4989105175893018238
+--- !u!114 &2626441517380019159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,9 +239,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3780895756817780624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7c9f4ba34d3a94bb7ce51eaf4eb449, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canDodge: 1
-  _dodgeImpulse: 2
-  _dodgeCooldown: 0.2
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
